@@ -37,4 +37,5 @@ Nous encourageons la contribution de la communauté ! Si vous souhaitez contribu
 4. Push sur la branche (git push -u origin feature/AmazingFeature)
 5. Ouvrez une Pull Request
 
-
+## Licence
+Ce projet est sous licence MIT. Consultez le fichier LICENCE pour plus de détails.
