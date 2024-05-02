@@ -164,7 +164,11 @@ const Login: React.FC = () => {
           </div>
           
           {/* Bouton de connexion */}
-          <Button className="w-full bg-linkedinBlue text-white font-semibold" type="submit">
+          <Button
+            className="w-full bg-linkedinBlue text-white font-semibold py-3 rounded-full
+            hover:bg-dark transition duration-300"
+            type="submit"
+          >
             S'identifier
           </Button>
         </form>
