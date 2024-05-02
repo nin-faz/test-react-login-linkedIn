@@ -16,8 +16,11 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   onSelect,
 }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
+     /*
+    écouteur d'événement lorsque le menu déroulant de la langue est visible.
+    Si l'utilisateur clique à l'extérieur, le menu est fermé.
+    */
+    useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         onToggle(); // Fermer le menu si on clique à l'extérieur
@@ -31,7 +34,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
     return () => {
       document.removeEventListener('click', handleOutsideClick);
     };
-  }, [isVisible]);
+    }, [isVisible]);
 
   return (
     <div className="relative" ref={dropdownRef}>

@@ -5,6 +5,7 @@ import LanguageDropdown from './components/LanguageMenu';
 import { FaGoogle, FaApple } from 'react-icons/fa';
 
 const Login: React.FC = () => {
+  // Etats pour les champs de saisie
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -15,6 +16,7 @@ const Login: React.FC = () => {
   const [isLanguageDropdownVisible, setIsLanguageDropdownVisible] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  // Comportements 
   const validateEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email) && email.length >= 3 && email.length <= 128;
@@ -98,14 +100,19 @@ const Login: React.FC = () => {
     { code: 'others', label: 'Autres' },
   ];
 
+  // affichage
   return (
+    // Conteneur principal
     <div className="flex flex-col items-center font-system">
+
+      {/* Logo LinkedIn en haut à gauche */}
       <div className="absolute top-8 left-14">
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
           <img src="/images/Linkedin-logo.png" alt="LinkedIn Logo" className="w-[112px] h-[28px]" />
         </a>
       </div>
 
+      {/* Carte blanche du formulaire */}
       <div className="max-w-sm bg-white p-7 mt-14 rounded-lg shadow-xl">
         <h1 className="text-4xl leading-tight font-semibold text-black-900 pb-1">S'identifier</h1>
         <p className="text-sm pb-5">
@@ -130,7 +137,7 @@ const Login: React.FC = () => {
             type={isPasswordVisible ? 'text' : 'password'}
             error={passwordError}
             isFocused={isPasswordFocused}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
             onFocus={() => setIsPasswordFocused(true)}
             onBlur={() => setIsPasswordFocused(password.length > 0)}
           >
@@ -146,7 +153,7 @@ const Login: React.FC = () => {
             </span>
           </TextInput>
 
-
+          {/* Mot de passe oublié */}
           <div className="text-left text-sm pb-5">
             <a
               href="https://www.linkedin.com/checkpoint/rp/request-password-reset?trk=guest_homepage-basic_nav-header-signin"
@@ -155,7 +162,8 @@ const Login: React.FC = () => {
               Mot de passe oublié ?
             </a>
           </div>
-
+          
+          {/* Bouton de connexion */}
           <Button className="w-full bg-linkedinBlue text-white font-semibold" type="submit">
             S'identifier
           </Button>
@@ -188,7 +196,8 @@ const Login: React.FC = () => {
           </a>
           {' '} de LinkedIn.
         </div>
-
+        
+        {/* Boutons de connexion avec Google et Apple */}
         <div className="font-semibold text-gray-500 mt-6">
           <Button
             className="flex items-center justify-center rounded-full border border-gray-600 p-2 hover:bg-gray-100 w-full"
@@ -208,6 +217,7 @@ const Login: React.FC = () => {
         </div>
       </div>
 
+      {/* En-dessous de la carte blanche du formulaire */}
       <div className="pt-8">
         Vous débutez sur LinkedIn ?{' '}
         <a
@@ -218,6 +228,7 @@ const Login: React.FC = () => {
         </a>
       </div>
 
+      {/* Footer */}
       <footer className="text-gray-500 pt-16 pr-32">
         <div className="flex space-x-4">
           <div className="flex pr-5 text-xs text-black max-w-[100px]">
@@ -230,6 +241,7 @@ const Login: React.FC = () => {
             <span className='relative top-5 right-16'>2024</span>
           </div>
 
+          {/* Liens du footer */}             
           <ul className="flex flex-wrap space-x-2 text-[12px] max-w-[900px]">
             <li className="pb-3">
               <a
